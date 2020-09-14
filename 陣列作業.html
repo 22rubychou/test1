@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>陣列作業</title>
+  </head>
+  <body>
+    <script>
+      let tem = [
+        ["", "星期一", "星期二", "星期三", "星期四"],
+        ["時段一", 18.2, 17.3, 15.0, 13.4],
+        ["時段二", 23.8, 25.1, 20.6, 17.8],
+        ["時段三", 20.6, 21.5, 18.4, 15.7],
+      ];
+      let daytem = [0, 0, 0, 0];
+      let timetem = [0, 0, 0];
+      document.write("<table border=1px>");
+      document.write("<tr border=1px>");
+      for (i = 0; i < tem.length; i++) {
+        document.write("</tr>");
+        for (j = 0; j < tem[i].length; j++) {
+          document.write("<td>");
+          document.write(tem[i][j]);
+          document.write("</td>");
+        }
+      }
+      document.write("</table>");
+
+      let tem2 = [
+        [18.2, 17.3, 15.0, 13.4],
+        [23.8, 25.1, 20.6, 17.8],
+        [20.6, 21.5, 18.4, 15.7],
+      ];
+
+      for (i = 0; i < tem2.length; i++) {
+        for (j = 0; j <= tem2[i].length; j++) {
+          daytem[j] += tem2[i][j] / timetem.length;
+        }
+      }
+      document.write(`星期一的平均氣溫${daytem[0]}度`);
+      document.write("<br>");
+      document.write(`星期二的平均氣溫${daytem[1]}度`);
+      document.write("<br>");
+      document.write(`星期三的平均氣溫${daytem[2]}度`);
+      document.write("<br>");
+      document.write(`星期四的平均氣溫${daytem[3]}度`);
+      document.write("<br>");
+      document.write("<br>");
+
+      for (i = 0; i < tem2.length; i++) {
+        for (j = 0; j < tem2[i].length; j++) {
+          timetem[i] += tem2[i][j] / tem2[0].length;
+        }
+      }
+      document.write(`時段一的平均氣溫${timetem[0]}度`);
+      document.write("<br>");
+      document.write(`時段二的平均氣溫${timetem[1]}度`);
+      document.write("<br>");
+      document.write(`時段三的平均氣溫${timetem[2]}度`);
+      document.write("<br>");
+      document.write("<br>");
+
+      let max = tem[1][1];
+      let min = tem[1][1];
+      let md = tem[0][0];
+      let mt = tem[0][0];
+      let mind = tem[0][0];
+      let mint = tem[0][0];
+
+      for (let i = 1; i < tem.length; i++) {
+        for (let j = 1; j <= tem[i].length; j++) {
+          if (tem[i][j] > max) {
+            max = tem[i][j];
+            md = tem[0][j];
+            mt = tem[i][0];
+          }
+          if (tem[i][j] < min) {
+            min = tem[i][j];
+            mind = tem[0][j];
+            mint = tem[i][0];
+          }
+        }
+      }
+      document.write(`最高溫是在${md}${mt}`);
+      document.write("<br>");
+      document.write(`最低溫是在${mind}${mint}`);
+    </script>
+  </body>
+</html>
